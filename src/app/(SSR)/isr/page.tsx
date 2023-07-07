@@ -4,11 +4,11 @@ import Link from 'next/link'; // use the next/link component to navigate between
 import { Alert } from '@/libraries/bootstrap'; // use the bootstrap components from the library
 import { UnsplashImage } from '@/models/unsplash-image'; // import the UnsplashImage type from the models
 
-export const revalidate = 0; // no revalidation needed for this page (it's dynamic)
+export const revalidate = 900; // revalidate every 15 minutes (900 seconds)
 
 export const metadata = {
 	// metadata for this page (will be used by the <Head />)
-	title: 'Dynamic Page',
+	title: 'Incremental Static Regeneration (ISR)',
 };
 
 type PageProps = {}; // define the type for the Page component props
@@ -31,8 +31,8 @@ export default async function Page({}: PageProps) {
 	return (
 		<main className="d-flex flex-column align-items-center">
 			<Alert>
-				This page is <strong>dynamically</strong> rendered on the server and
-				then hydrated on the client.
+				This page uses <strong>Incremental Static Regeneration</strong>. A new
+				page is fetched from the server every 15 seconds.
 			</Alert>
 
 			<Image

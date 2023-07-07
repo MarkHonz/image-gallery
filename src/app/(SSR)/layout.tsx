@@ -6,10 +6,10 @@ type SSRLayoutProps = {
 
 export default function SSRLayout({ children }: SSRLayoutProps) {
 	return (
-		<div className={styles.container}>
+		<section className={styles.container}>
 			<h6>Cows come home.</h6>
 			{children}
 			<h6>Dishes run away.</h6>
-		</div>
+		</section>
 	);
 }
